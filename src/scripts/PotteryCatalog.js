@@ -3,18 +3,18 @@ let soldPot = []
 export const toSellOrNotToSell = (kilnedPottery) =>{
     let newKilnedPottery = kilnedPottery
     if (kilnedPottery.cracked) {
-        return newKilnedPottery
-    } else if (kilnedPottery.weight >=6){
-        kilnedPottery.price = 40
-    } else { kilnedPottery.price = 20 }
-    
+        return kilnedPottery
+    } else if (newKilnedPottery.weight >=6){
+        newKilnedPottery.price = 40
+    } else { newKilnedPottery.price = 20 }
+    usePottery(newKilnedPottery)
+    soldPot.push(newKilnedPottery)
     return newKilnedPottery
     
 }
 
-export const usePottery=(newKilnedPottery)=>{
+export const usePottery=(goodKilnedPottery)=>{
     let catalog = []
-    soldPot.push(newKilnedPottery)
-    catalog += soldPot
+        catalog = [...soldPot]
     return catalog
 }
